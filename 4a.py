@@ -57,5 +57,5 @@ def evaluate(str):
     
     return stack.pop()
     
-str = "%*/*90-/50+23^1251520"
+str = "%*/*90-/50+23^1251520001"
 print(evaluate(str))
