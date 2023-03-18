@@ -73,34 +73,17 @@ class LinkedList:
             
     
     #delete from tail
-    # def tailRemove(self):
-    #     #logic: step 1: i will run a loop till before last node, and step 2: i will break the link between before last node and last node
-    #     curr = self.head
-    #     #if curr next is already none, it means list has only head item. here we have to delete the head only.
-    #     #as delete head function is already exist, so i will call that function.
-    #     if curr.next == None:
-    #         self.head = None #self.head means now head is pointing to none, means list become empty
-    #         return
-        
-    #     while curr.next.next != None: #step 1
-    #         curr = curr.next #in loop only incrementing the curr pointer
-    #         #step 2: pointing before last node to None. as tail always points to None
-    #     curr.next = None 
+    def tailRemove(self):
+        #logic: step 1: i will run a loop till before last node, and step 2: i will break the link between before last node and last node
+        curr = self.head
+        while curr.next.next != None: #step 1
+            curr = curr.next #in loop only incrementing the curr pointer
+        #step 2: pointing before last node to None. as tail always points to None
+        curr.next = None 
     
-    def removeTail(self):
-        if self.head == None: #ekhane check krchi link list khali kina?
-            return None #haan hole, None return korabo.
-        if self.head.next == None: #uporer condition false hole ekhane check krbe link list head er porer node khali/None kina
-            self.head = None #jodi haan hoy, tahole link list er head k none kore dilei, link list khali hoye jabe
-            return None #r none return koriye debo
-        curr = self.head #jodi uporer duto condition true na hoy, tokhn curr name akta pointer nebo jeta link list er head k point krbe
-        while curr.next.next != None: #r ekhane check krbo, link list er head er porer porer node None kina!
-            curr = curr.next #jodi None na hoy tahole curr pointer k curr.next a increment kore debo
-        curr.next = None #r loop theke beronor por curr.next k sudhu None kore dilei, last node link list theke kete jabe.
-        return self.head #r return kore debo head er value k
-        
     
-        
+    
+    
     def print(self):
         if self.head is None:
             print("Linked list is empty")
@@ -120,22 +103,13 @@ if __name__ == '__main__':
     ll.insert_at_begining(4)
     ll.insert_at_begining(2)
     ll.insert_at_begining(6)
-    # ll.insert_at_begining(7)
-    # ll.insertAtTail(0)
-    # ll.insertAtTail(1)
-    #ll.inserAfterTarget(100,100)
+    ll.insert_at_begining(7)
+    ll.insertAtTail(0)
+    ll.insertAtTail(1)
+    ll.inserAfterTarget(100,100)
     ll.print()
     #ll.clearList()
     #ll.insert_at_begining(100)  
-    # ll.headRemove()
-    # ll.headRemove()
-    # ll.headRemove()
-    # ll.headRemove()
-    # ll.headRemove()
     #ll.headRemove()
-    ll.removeTail()
-    ll.removeTail()
-    ll.removeTail()
-    ll.removeTail()
-    
+    ll.tailRemove()
     ll.print()
