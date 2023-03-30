@@ -55,7 +55,7 @@ class LinkedList:
     
     
     
-    def print(self):
+    def print2(self):
         if self.head is None:
             print("Linked list is emty")
             return 
@@ -79,4 +79,4 @@ if __name__ == '__main__':
     ll.insertAtTail(1)
     ll.inserAfterTarget(100,100)
     #ll.insert_at_begining(100)
-    ll.print()
+    ll.print2()

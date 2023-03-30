@@ -100,6 +100,35 @@ class LinkedList:
         return self.head #r return kore debo head er value k
         
     
+    
+    #04:05 to 04:20  deletion of target index
+    def targetDel(self, indexElement):
+        current = self.head
+        
+        if self.head == None:
+            print("linked list is already empty, so do you want to delete pritam itself")       
+            return
+        else:
+            if current.data == indexElement:
+                self.head = self.head.next
+                return
+                #although i can call the headremove() function here, as i have this funtion
+            else:
+                while current.next != None:
+                    if current.next.data == indexElement:
+                        break
+                    current = current.next
+                #after while there can be two condition.
+                #1. item not found
+                if current.next == None:
+                    print ("index element not found")
+                #2. item found.
+                else:
+                    current.next = current.next.next 
+                    #creating the link between node with previous node and after node of the deleted node
+
+    
+    
         
     def print(self):
         if self.head is None:
@@ -133,9 +162,15 @@ if __name__ == '__main__':
     # ll.headRemove()
     # ll.headRemove()
     #ll.headRemove()
-    ll.removeTail()
-    ll.removeTail()
-    ll.removeTail()
-    ll.removeTail()
+    #ll.removeTail()
+    
+    
+    ll.targetDel(2)
+    
+    ll.print()
+    
+    ll.targetDel(6)
+    ll.targetDel(4)
+    
     
     ll.print()
