@@ -1,5 +1,5 @@
-#convert the unordered given string into human readable sentence. time : 04:54 to 05:02
-#test case 1.  if '*' or '/' received, replace with space.
+#convert the unordered given string into human readable sentence. time : 04:54 to 05:06
+#test case 1.  if single '*' or '/' received, replace with space.
 #test case 2: if consicutive two '*' or '/' occur, then convert it two single space and make next charecter into upper case.
 #ex: The/*sky*is//blue --> The Sky is Blue
 
