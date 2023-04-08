@@ -45,7 +45,7 @@ class Stack:
             return
         else:
             temp = self.top.data
-            print("popped value is ",temp)
+            #print("popped value is ",temp)
             self.top = self.top.next #just points the top to top.next value.... simply deleting top
             return temp
     '''
@@ -67,9 +67,52 @@ def reverseString(text): #it is a fucntion, defind outside the class
     
     print(empString)
     
+
+
+
+'''
+text editor: 05:30 to 05:38
+to perform undo and redo operation.
+lets given srting is 'Hello'. now perform undo, so string will look like 'Hell', if i perform redo, the deleted charecter will be back in the string
+and the string looks like 'Hello'.
+'''
+
+def textEditor (text , pattern): #text = string and pattern = in which order the string will be edited
+    u = Stack() #u means undo operation, delete the charecter from u stack and push it to r Stack.
+    r = Stack() #r means redo operation, delete the charecter from r stack and push it to u stack.
     
+    for i in text:
+        u.push(i)
+        
+    for i in pattern:
+        if i == 'u':        #when 'u' arrive in string, charecter will be popped out from text, and push the deleted charecter into r stack. 
+            data = u.pop()  #'data' is temp variable, its job is only to take the value from u stack and push it to r stack
+            r.push(data)
+        elif i == 'r':
+            if r.isEmpty():
+                print("pop from r stack can not be performed! do pop from u stack first")
+            else:
+                data = r.pop()
+                u.push(data)
+        else:
+            print("wrong pattern arrived")
+            continue
+        
+    result = ''
+    while not u.isEmpty():
+        result = u.pop() + result
     
-    
+    print('final string looks like-',result)
+
+
+'''
+*celebrity problem: 05:39 to 05:
+
+'''
+
+
+
+
 
 stack = Stack()
     # stack.push(5)
@@ -80,4 +123,7 @@ stack = Stack()
     # stack.traverse()
     # stack.peek()
 
-reverseString("hello")
+#reverseString("hello")
+
+textEditor('pritam', 'uuuuuuu')
+
