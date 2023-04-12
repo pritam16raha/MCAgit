@@ -107,9 +107,26 @@ def textEditor (text , pattern): #text = string and pattern = in which order the
 
 '''
 *celebrity problem: 05:39 to 05:
-
+in a given matrix one element dont know anyone, but everyone knows him/her.
+4x4 matrix : a b c d
+           a - 0 1 1
+           b 0 - 1 1
+           c 1 0 - 1
+           d 0 0 0 0
+here element(row) -> element(column) is invalid, this is why - written.
+and here d dont knows anyone. but a,b,c everyone knows d. here d is celebrity
+process: 
 '''
+L = [
+    [0,0,1,1],
+    [0,0,1,0],
+    [0,0,0,0],
+    [0,0,1,0]
+]
 
+def findTheCelebrity(L):
+    s = Stack()
+    
 
 
 
