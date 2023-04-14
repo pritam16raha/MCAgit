@@ -54,10 +54,10 @@ class linkedList:
         currentNode = self.head #currentNode pointing to head of linked list
         
         while currentNode != None: #when current node will reach to None, this loop will terminate
-            nextNode = currentNode.next #nextNode is 3rd variable(newNode) to track the linkedList, nextNode holds the address of current.next node 
-            currentNode.next = prevNode #in 1st iteration prevNode is pointing to None.
-            prevNode = currentNode #now incremention previous 
-            currentNode = nextNode
+            nextNode = currentNode.next #nextNode is 3rd variable(newNode) to track the linkedList, nextNode holds the address of current.next/self.head.next node 
+            currentNode.next = prevNode #in 1st iteration prevNode is pointing to None. and making the current.next node to prevNode
+            prevNode = currentNode #now incremention previous by making prevNode to currentNode
+            currentNode = nextNode 
             '''
             currentNode = nextNode
             prevNode = currentNode

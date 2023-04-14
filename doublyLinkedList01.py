@@ -35,12 +35,27 @@ class doublyLinkedList:
             while curr != None:
                 print(curr.data,"->",end=" ") 
                 curr = curr.next
-
-dList = doublyLinkedList()
-dList.display()
-dList.insert(5)
-dList.insert(4)
-dList.insert(6)
-dList.insert(3)
-dList.insert(2)
-dList.display()
+                
+    def reverseDoubly(self):
+       prevNode = None
+       currentNode = self.head
+       
+       while currentNode != None:
+           nextNode = currentNode.next
+           currentNode.next = prevNode
+           prevNode = currentNode
+           currentNode = nextNode
+        
+       self.head = prevNode       
+            
+if __name__ == '__main__':
+    dList = doublyLinkedList()
+    dList.display()
+    dList.insert(5)
+    dList.insert(4)
+    dList.insert(6)
+    dList.insert(3)
+    dList.insert(2)
+    dList.display()
+    dList.reverseDoubly()
+    dList.display()
