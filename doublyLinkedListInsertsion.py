@@ -60,9 +60,50 @@ class doublyLinkedList:
         
        self.head = prevNode
     
-    #insert before a given node.
-    
-    
+    #insert after a given node.
+    def insertAfterValue(self, data, target):
+        newNode = Node(data)
+        current = self.head
+        if self.head is None:
+            print("Doubly linked list is empty")
+        else:
+            while current != None:
+                if current.data == target:
+                    break
+                current = current.next
+            if current is None:
+                print("target value is not present is this linked list")
+            else:
+                newNode.next = current.next
+                newNode.prev = current
+                if current.next is not None:
+                    current.next.prev = newNode
+                current.next = newNode
+            
+    #add value before a node
+    def addBefore(self, data , target):
+        newNode = Node(data)
+        current = self.head
+        if self.head is None:
+            print("Doubly linked list is empty")
+        else:
+            while current != None:
+                if current.data == target:
+                    break
+                current = current.next
+            if current is None:
+                print("target value is not present is this linked list")
+            else:
+                newNode.next = current
+                newNode.prev = current.prev
+                if current.prev is not None:
+                    current.prev.next = newNode
+                else:
+                    self.head = newNode
+                current.prev = newNode
+
+        
+        
     
     
     
@@ -98,5 +139,10 @@ if __name__ == '__main__':
     dList.insertAtBegining(6)
     dList.insertAtBegining(7)
     print(dList)
-    dList.reverseDoubly()
+    #dList.reverseDoubly()
+    dList.insertAfterValue(10,3)
+    print(dList)
+    
+    dList.addBefore(15,5)
+    
     print(dList)
