@@ -1,3 +1,12 @@
+'''
+* Doubly linked list has five method for insertsion.
+ 1.Insertion when linked list is empty.
+ 2. Insert at the begining of the linked list.
+ 3. Insert at the end of linked list.
+ 4. Insert after a given node.
+ 5. Insert before a given node.
+'''
+
 class Node:
     def __init__ (self, data):
         self.data = data
@@ -12,7 +21,9 @@ class doublyLinkedList:
     def isEmpty(self):
         if self.head is None:
             print("Linked List is empty")
-            
+    
+    
+    #this is actually method of inserting value at the end of the node        
     def insertData(self, data):
         newNode = Node(data)
         if self.head is None:
@@ -21,8 +32,42 @@ class doublyLinkedList:
         current = self.head
         while current.next != None:
             current = current.next
-        current.next = newNode
+        #as this is doubly linked list, so link will be created in both direction after ending the while loop
+        current.next = newNode 
+        newNode.prev = current 
             
+    #insert at begining
+    #as this is doubly linked list, so link will be created in both direction 
+    # linked list look like this: 5 ⇔ 4 ⇔ 6 ⇔ 3 ⇔ 2 
+    def insertAtBegining(self,data):
+        newNode = Node(data)
+        if self.head is None:
+            self.head = newNode
+        else: 
+            newNode.next = self.head #created node now hold the head node reference
+            self.head.prev = newNode #previous head's prev will store the address of newNode 
+            self.head = newNode #finally head pointer will shift to newNode from previous node.
+    
+    def reverseDoubly(self):
+       prevNode = None
+       currentNode = self.head
+       
+       while currentNode != None:
+           nextNode = currentNode.next
+           currentNode.next = prevNode
+           prevNode = currentNode
+           currentNode = nextNode
+        
+       self.head = prevNode
+    
+    #insert before a given node.
+    
+    
+    
+    
+    
+    
+    
             
     def __str__(self):
         if self.head == None:
@@ -31,10 +76,15 @@ class doublyLinkedList:
             itr = self.head
             point = ''
             while itr != None:
-                point = point + str(itr.data) + '->'
+                point = point + str(itr.data) + ' ⇔  '
                 itr = itr.next
-            point = point[:-2]
+            point = point[:-4]
             return point
+    
+    
+    
+    
+    
                 
 if __name__ == '__main__':
     dList = doublyLinkedList()
@@ -44,4 +94,9 @@ if __name__ == '__main__':
     dList.insertData(6)
     dList.insertData(3)
     dList.insertData(2)
+    dList.insertData(1)
+    dList.insertAtBegining(6)
+    dList.insertAtBegining(7)
+    print(dList)
+    dList.reverseDoubly()
     print(dList)
