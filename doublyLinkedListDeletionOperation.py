@@ -40,17 +40,34 @@ class doublyLinkedList:
         else:
             if self.head.next is None:
                 self.head = None
-                
             else:
                 current = self.head
                 while current.next != None:
                     current = current.next
                 current.prev.next = None
                 self.tail = current.prev
+                print("deleted node is :",current.data)
             
-
-
-
+    def deleteByValue(self, target):
+        current = self.head
+        if self.head is None :
+            print("Doubly linked list is empty, deletion error")
+            return
+        #else part:
+        else:
+            if self.head.data == target:
+                    self.head = self.head.next
+                    return
+            else:
+                while current.next != None:
+                    if current.next.data == target:
+                        break
+                    current = current.next
+                if current.next == None:
+                    print("target is not present in the doubly linked list")
+                else:
+                    current.next = current.next.next
+                
 
     
     def __str__(self):
@@ -77,10 +94,13 @@ if __name__ == '__main__':
     dList.insertData(0)
     
     print(dList)
-    
-    dList.deleteLastNode()
-    dList.deleteLastNode()
-    #dList.deleteNode()
-    #dList.deleteNode()
-    
+    dList.deleteByValue(6)
+    dList.deleteByValue(10)
+    dList.deleteByValue(10)
+    dList.deleteByValue(2)
     print(dList)
+    #dList.deleteLastNode()
+    #dList.deleteNode()
+    #dList.deleteNode()
+    
+    #print(dList)
