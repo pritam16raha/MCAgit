@@ -21,7 +21,7 @@ class doublyLinkedList:
         newNode.prev = current
 
 
-    def deleteNode(self):
+    def deleteNode(self): #this method actually delete the first node of doubly linked list
         if self.head is None:
             print("deletion can not be done, as the doubly linked list is already empty") 
             #return is not required, as i am using else    
@@ -32,7 +32,22 @@ class doublyLinkedList:
                 #return is not required, as i am using else
             else:
                 self.head = self.head.next
+                self.head.prev = None
 
+    def deleteLastNode(self):
+        if self.head is None:
+            print("Last node deletion can not be done, as the doubly linked list is already empty")
+        else:
+            if self.head.next is None:
+                self.head = None
+                
+            else:
+                current = self.head
+                while current.next != None:
+                    current = current.next
+                current.prev.next = None
+                self.tail = current.prev
+            
 
 
 
@@ -63,6 +78,9 @@ if __name__ == '__main__':
     
     print(dList)
     
-    dList.deleteNode()
+    dList.deleteLastNode()
+    dList.deleteLastNode()
+    #dList.deleteNode()
+    #dList.deleteNode()
     
     print(dList)
