@@ -71,14 +71,14 @@ class doublyLinkedList:
                 if current.data == target:
                     break
                 current = current.next
-            if current is None:
+            if current is None: #in case previous 'if' is True, means loop will break, in that case current will not be 'None'. so ***
                 print("target value is not present is this linked list")
-            else:
+            else: # *** this condition will execute
                 newNode.next = current.next
                 newNode.prev = current
-                if current.next is not None:
+                if current.next is not None:  #this condition is checking, is the current pointing to 'tail-Node' of the linked list or not!
                     current.next.prev = newNode
-                current.next = newNode
+                current.next = newNode #if current is pointing to last node, then new node will be added at last after current, and newNode.next will get None, as current.next = None.
             
     #add value before a node
     def addBefore(self, data , target):
