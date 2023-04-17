@@ -13,7 +13,7 @@ class LinkedList:
         return self.n
     
     
-    def insert_at_begining(self,data):
+    def insert_at_begining(self, data):
         node = Node(data,self.head)
         self.head = node #reassigning new node
          
