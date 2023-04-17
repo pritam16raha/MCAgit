@@ -26,7 +26,6 @@ class doublyLinkedList:
             print("deletion can not be done, as the doubly linked list is already empty") 
             #return is not required, as i am using else    
         else:
-            
             if self.head.next is None:
                 self.head = None
                 #return is not required, as i am using else
@@ -48,26 +47,22 @@ class doublyLinkedList:
                 self.tail = current.prev
                 print("deleted node is :",current.data)
             
+
+
     def deleteByValue(self, target):
-        current = self.head
         if self.head is None :
             print("Doubly linked list is empty, deletion error")
             return
-        #else part:
-        else:
-            if self.head.data == target:
-                    self.head = self.head.next
-                    return
-            else:
-                while current.next != None:
-                    if current.next.data == target:
-                        break
-                    current = current.next
-                if current.next == None:
-                    print("target is not present in the doubly linked list")
-                else:
-                    current.next = current.next.next
-                
+        if self.head.data == target:
+            self.deleteNode()
+            return
+        current = self.head
+        while current.next.data != target:
+            if current.next.next == None:
+                print(target, "Not found")
+                return
+            current = current.next
+        current.next = current.next.next 
 
     
     def __str__(self):
@@ -87,17 +82,12 @@ if __name__ == '__main__':
     dList = doublyLinkedList()
     dList.insertData(10)
     dList.insertData(8)
-    dList.insertData(6)
-    dList.insertData(4)
-    dList.insertData(2)
-    dList.insertData(1)
-    dList.insertData(0)
+
     
     print(dList)
-    dList.deleteByValue(6)
     dList.deleteByValue(10)
-    dList.deleteByValue(10)
-    dList.deleteByValue(2)
+
+
     print(dList)
     #dList.deleteLastNode()
     #dList.deleteNode()
