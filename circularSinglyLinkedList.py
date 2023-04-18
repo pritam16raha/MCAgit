@@ -34,14 +34,24 @@ class circularLinkedList:
             
             
             
-    def addAtPosition(self,data):
-        newNode = Node(data)
+    def addAtPosition(self, value, target):
+        newNode = Node(value)
+        current = self.head
         if self.head is None:
             self.head = newNode
             self.tail = newNode
             self.tail.next = self.head
         else:
-            pass
+            
+            while current.next != self.head:
+                #print("loop ekhane esache na")
+                if current.next.data == target:
+                    #print("loop ekhane")
+                    newNode.next = current.next.next
+                    current.next = newNode
+                    return
+                else:
+                    current = current.next
     
                
         
@@ -73,4 +83,6 @@ linked.addAtBegin(6)
 linked.addAtBegin(4)
 linked.addAtBegin(2)
 linked.addAtEnd(100)
+print(linked)
+linked.addAtPosition(50,100)
 print(linked)
