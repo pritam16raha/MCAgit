@@ -6,18 +6,44 @@ class Node:
 class circularLinkedList:
     def __init__(self):
         self.head = None
+        self.tail = None
         
-    def insertData(self,data):
+    
+    
+    def addAtBegin(self, data):
         newNode = Node(data)
-        if self.head is None: #when linked list is empty, the newly created node -> newnode.next will point to itself. (line no - 14)
+        if self.head is None: #as linked list is empty, so head and tail both will point to newNode.
             self.head = newNode
+            self.tail = newNode
+            self.tail.next = self.head 
+        else:
             newNode.next = self.head
-            return
-        current = self.head
-        while current.next is not self.head:
-            current = current.next
-        current.next = newNode
-        newNode.next = self.head
+            self.tail.next = newNode
+            self.head = newNode
+    
+    def addAtEnd(self, data):
+        newNode = Node(data)
+        if self.head is None:
+            self.head = newNode
+            self.tail = newNode
+            self.tail.next = self.head
+        else:
+            self.tail.next = newNode
+            self.tail = newNode
+            self.tail.next = self.head
+            
+            
+            
+    def addAtPosition(self,data):
+        newNode = Node(data)
+        if self.head is None:
+            self.head = newNode
+            self.tail = newNode
+            self.tail.next = self.head
+        else:
+            pass
+    
+               
         
     def __str__(self):
         container2 = ''
@@ -25,30 +51,26 @@ class circularLinkedList:
             return "linked list is empty"
         else:
             current = self.head
-            container2 = container2 + str(current.data) + '->'
+            container2 = container2 + str(current.data) + '<->' #this line is to print the first inserted value, in this case which is '5'. self.head is pointing to 5
             
             while current.next != self.head:
                 current = current.next
-                container2 = container2 + str(current.data) + '->'
-            container2 = container2[:-2]
+                container2 = container2 + str(current.data) + '<->'
+            container2 = container2[:-3]
             return container2
-
+                   
 
 '''
 ***WARNING***
 if condition is not written carefully, then linked list can enter into infinite loop, as no node is holding None/Null.
-
-
 '''
-
 
     
 linked = circularLinkedList()
-linked.insertData(5)
-linked.insertData(6)
-linked.insertData(4)
-linked.insertData(7)
-linked.insertData(3)
-linked.insertData(8)
-linked.insertData(2)
+linked.addAtBegin(10)
+linked.addAtBegin(8)
+linked.addAtBegin(6)
+linked.addAtBegin(4)
+linked.addAtBegin(2)
+linked.addAtEnd(100)
 print(linked)
