@@ -1,9 +1,5 @@
-def addAtBegin(self, data):
-    #     newNode = Node(data)
-    #     if self.head is None:
-    #         self.head = newNode
-    #         return
-    #     else:
-    #         newNode.next = self.head
-    #         self.head = newNode
-    #         return
+linked.addAtBegin(10)
+# linked.addAtBegin(8)
+# linked.addAtBegin(6)
+# linked.addAtBegin(4)
+# linked.addAtBegin(2)
