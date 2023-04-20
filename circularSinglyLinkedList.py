@@ -76,24 +76,13 @@ class circularLinkedList:
                 current = current.next
             current.next = self.head
             self.tail = current
-            
-            
-    def targetDelete(self, target):
-        if self.head is None:
-            print("deletion error!, as the linked list is already empty")
-        elif self.head.next is None and self.head.data == target:
-                self.tail.next = self.head
-                self.head = None
-                return
-        
-        else:
-            current = self.head
-            while current.next.next != self.head:
-                if current.next == self.tail and current.next.data == target:
-                    return self.deleteTail()
-                else:
-                    
-                    
+    
+    def deleteNode(self, key):
+        current = self.head
+        if current.data == None or current.data == key:
+            return
+        if current.next == None:
+            return
                 
             
         # if self.head is None:
