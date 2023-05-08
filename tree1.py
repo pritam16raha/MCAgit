@@ -17,16 +17,40 @@ class Node:
         self.right = None
         
 class Tree:
-    def __init__(self):
-        self.head = None #initiatially empty tree will point to None.
-        
     def createNode(self, data):
-        self.head = Node(data)
         return Node(data)
     
-    def insertNode(self, data):
-        if self.head is None:
-            self.createNode(data)
-        elif self.head.data > data:
-            self.
+    def insertNode(self, currentNode , data):
+        if currentNode is None:
+            return  self.createNode(data)
+        if data < currentNode.data:
+            currentNode.left = self.insertNode(currentNode.left , data)
+        else:
+            currentNode.right = self.insertNode(currentNode.right , data)
+        return currentNode
+    
+    
+    def traverseInorder(self, root):
+        if root is not None:
+            self.traverseInorder(root.left)
+            print(root.data)
+            self.traverseInorder(root.right)
             
+            
+            
+            
+    
+t = Tree()
+root = t.createNode(5)
+print("root is : ",root.data)
+t.insertNode(root , 2)
+t.insertNode(root , 10)
+t.insertNode(root , 7)
+t.insertNode(root , 15)
+t.insertNode(root , 12)
+t.insertNode(root , 20)
+t.insertNode(root , 30)
+t.insertNode(root , 6)
+t.insertNode(root , 8)
+
+t.traverseInorder(root)
