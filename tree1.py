@@ -20,7 +20,7 @@ class Tree:
     def createNode(self, data):
         return Node(data)
     
-    def insertNode(self, currentNode , data):
+    def insertNode(self, currentNode , data): #currentNode is initial root node
         if currentNode is None:
             return  self.createNode(data)
         if data < currentNode.data:
@@ -37,8 +37,17 @@ class Tree:
             self.traverseInorder(root.right)
             
             
-            
-            
+    def preOrderTraversal(self,root):
+        if root is not None:
+            print(root.data)
+            self.preOrderTraversal(root.left)
+            self.preOrderTraversal(root.right)        
+    
+    def postOrderTraversal(self, root):
+        if root is not None:
+            self.postOrderTraversal(root.left)
+            self.postOrderTraversal(root.right)
+            print(root.data)        
     
 t = Tree()
 root = t.createNode(5)
@@ -54,3 +63,8 @@ t.insertNode(root , 6)
 t.insertNode(root , 8)
 
 t.traverseInorder(root)
+print("preorder list: ")
+t.preOrderTraversal(root)
+
+print("post order: ")
+t.postOrderTraversal(root)
