@@ -24,10 +24,10 @@ class Tree:
         if currentNode is None:
             return  self.createNode(data)
         if data < currentNode.data:
-            currentNode.left = self.insertNode(currentNode.left , data)
+            currentNode.left = self.insertNode(currentNode.left , data) #currentNode.left initially was None. so calling the onsert function again. and insertNode take two parameter 1. root node/ current node 2. node value which i want to insert
         else:
             currentNode.right = self.insertNode(currentNode.right , data)
-        return currentNode
+        return currentNode #returning current rott node
     
     
     def traverseInorder(self, root):
