@@ -55,17 +55,30 @@ class LinkedList:
     
     
     
-    def print2(self):
+    # def print2(self):
+    #     if self.head is None:
+    #         print("Linked list is emty")
+    #         return 
+    #     itr = self.head #itr is like i pointer, pointion to head at starting
+    #     llstr = ''
+    #     while itr != None:
+    #         llstr = llstr+str(itr.data) + '->' #llstr containing previous llstr data + present itr data. 
+    #         itr = itr.next
+    #     llstr = llstr[:-2] #llst wonts show the last two values on screen(slicing operation)
+    #     print(llstr)
+    
+    def __str__(self):
         if self.head is None:
-            print("Linked list is emty")
-            return 
-        itr = self.head #itr is like i pointer, pointion to head at starting
-        llstr = ''
-        while itr != None:
-            llstr = llstr+str(itr.data) + '->' #llstr containing previous llstr data + present itr data. 
-            itr = itr.next
-        llstr = llstr[:-2] #llst wonts show the last two values on screen(slicing operation)
-        print(llstr)
+            return "Linked list is empty"
+        else:
+            itr = self.head
+            counter = ''
+            while itr is not None:
+                counter = counter + str(itr.data) + '->'
+                itr = itr.next
+            counter = counter[:-2]
+            return counter
+        
     
 
 if __name__ == '__main__':
@@ -77,6 +90,6 @@ if __name__ == '__main__':
     ll.insert_at_begining(7)
     ll.insertAtTail(0)
     ll.insertAtTail(1)
-    ll.inserAfterTarget(100,100)
+    ll.inserAfterTarget(2,100)
     #ll.insert_at_begining(100)
-    ll.print2()
+    print(ll)
