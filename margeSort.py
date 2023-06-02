@@ -4,7 +4,9 @@
 def mergeSort(array):
     if len(array) > 1:
 
-        #  r is the point where the array is divided into two subarrays
+        # r is the point where the array is divided into two subarrays
+        # L = left sub array
+        # M = right sub array
         r = len(array)//2
         L = array[:r]
         M = array[r:]
